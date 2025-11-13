@@ -1,5 +1,27 @@
 # @wjfe/n-savant-sk
 
+> ⚠️ DEPRECATED
+> 
+> This package has been deprecated because it has been renamed and re-branded.  Use `@svelte-router/kit` instead.
+
+## 📦 Package Renaming & Deprecation Notice
+
+The `@wjfe/n-savant` and `@wjfe/n-savant-sk` packages are now deprecated and will no longer receive updates. Please 
+migrate to the new `@svelte-router/*` packages to ensure compatibility with future versions of Svelte.
+
+### Migration Instructions
+
+As of v1.0, the router has been renamed to better reflect its role in the Svelte ecosystem.  Install the new package 
+and update your imports:
+
+| Old Package Path          | New Package Path              |
+|---------------------------|-------------------------------|
+| `@wjfe/n-savant`          | `@svelte-router/core`         |
+| `@wjfe/n-savant-sk`       | `@svelte-router/kit`          |
+| `@wjfe/n-savant/core`     | `@svelte-router/core/kernel`  |
+
+---
+
 > Hash router for Sveltekit projects
 
 This is an extension package of the [@wjfe/n-savant](https://github.com/WJSoftware/wjfe-n-savant) SPA router, and enables the use of the router in hash mode in Sveltekit projects.
