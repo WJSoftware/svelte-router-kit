@@ -1,7 +1,7 @@
-import type { HistoryApi } from "@wjfe/n-savant";
+import type { HistoryApi } from "@svelte-router/core";
 import { goto } from "$app/navigation";
 import { page } from "$app/state";
-import { isConformantState } from "@wjfe/n-savant/core";
+import { isConformantState } from "@svelte-router/core/kernel";
 import { browser } from "$app/environment";
 
 function assertValidUrl(url: string | URL | null | undefined): asserts url is string | URL {

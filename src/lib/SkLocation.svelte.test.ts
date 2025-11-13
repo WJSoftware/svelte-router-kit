@@ -1,6 +1,6 @@
 import { describe, test, expect, beforeEach, afterEach, vi, beforeAll, afterAll } from "vitest";
 import { SkLocation } from "./SkLocation.js";
-import { calculateHref, initCore, preserveQueryInUrl } from "@wjfe/n-savant/core";
+import { calculateHref, initCore, preserveQueryInUrl } from "@svelte-router/core/kernel";
 import { goto } from "$app/navigation";
 
 let location: SkLocation;
@@ -17,7 +17,7 @@ vi.mock(import("$app/navigation"), async (importActual) => {
 });
 
 // @ts-expect-error
-vi.mock(import("@wjfe/n-savant/core"), async (importActual) => {
+vi.mock(import("@svelte-router/core/kernel"), async (importActual) => {
     const m = await importActual();
     return {
         ...m,
@@ -30,7 +30,7 @@ describe("SkLocation", () => {
     let cleanup: () => void;
     beforeEach(() => {
         location = new SkLocation();
-        cleanup = initCore(location, { implicitMode: 'hash' });
+        cleanup = initCore(location, { defaultHash: true });
         vi.resetAllMocks();
     });
 
@@ -106,7 +106,7 @@ describe("SkLocation", () => {
 
             beforeAll(() => {
                 location = new SkLocation();
-                cleanup = initCore(location, { implicitMode: 'hash', hashMode: ru.hashMode });
+                cleanup = initCore(location, { defaultHash: true, hashMode: ru.hashMode });
             });
 
             afterAll(() => {
