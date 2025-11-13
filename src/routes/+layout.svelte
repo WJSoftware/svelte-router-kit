@@ -1,5 +1,5 @@
 <script lang="ts">
-    // import { init } from "@wjfe/n-savant";
+    // import { init } from "@svelte-router/core";
     // import { init } from "$lib/init.js";
     import type { Snippet } from "svelte";
 

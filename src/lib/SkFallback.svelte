@@ -1,6 +1,6 @@
 <script lang="ts">
     import { browser } from '$app/environment';
-    import { Fallback } from '@wjfe/n-savant';
+    import { Fallback } from '@svelte-router/core';
     import type { ComponentProps } from 'svelte';
 
     let { when, ...restProps }: ComponentProps<typeof Fallback> = $props();

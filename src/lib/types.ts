@@ -1,7 +1,7 @@
-import "@wjfe/n-savant";
+import "@svelte-router/core";
 import { goto } from "$app/navigation";
-import type { Hash, PreserveQuery, InitOptions, State, GoToOptions } from "@wjfe/n-savant";
-import type { calculateHref } from "@wjfe/n-savant/core";
+import type { Hash, PreserveQuery, InitOptions, State, GoToOptions } from "@svelte-router/core";
+import type { calculateHref } from "@svelte-router/core/kernel";
 
 /**
  * Options available to the `Location.skGoto` method.
@@ -22,12 +22,12 @@ export type SkNavigationOptions = Omit<SkGotoOptions, 'state'> & {
     hash?: Exclude<Hash, false>;
 };
 
-declare module "@wjfe/n-savant" {
+declare module "@svelte-router/core" {
     export interface Location {
         /**
          * Navigates to the specified href using SvelteKit's `goto` function.  This function, just like 
-         * `@wjfe/n-savant`'s `Location.navigate`, will correctly place the href and state data in the correct places
-         * according to the routing universe determined by the `hash` option.
+         * `@svelte-router/core`'s `Location.navigate`, will correctly place the href and state data in the correct 
+         * places according to the routing universe determined by the `hash` option.
          * 
          * @param href The href to navigate to.
          * @param options Navigation options.
@@ -37,7 +37,7 @@ declare module "@wjfe/n-savant" {
         skNavigate(href: string, options?: SkNavigationOptions): Promise<void>;
         /**
          * Navigates to the specified href using SvelteKit's `goto` function.  This function, just like 
-         * `@wjfe/n-savant`'s `Location.goTo`, will not make any calculations regarding routing universes.
+         * `@svelte-router/core`'s `Location.goTo`, will not make any calculations regarding routing universes.
          * 
          * @param href The href to navigate to.
          * @param options Navigation options.
@@ -51,7 +51,9 @@ declare module "@wjfe/n-savant" {
 /**
  * Options available to the `init` function.
  */
-export type SkInitOptions = Omit<InitOptions, 'implicitMode'>;
+export type SkInitOptions = Omit<InitOptions, 'defaultHash'> & {
+    defaultHash?: Exclude<Hash, false>;
+};
 
 export type SkHash = Exclude<Hash, false>;
 

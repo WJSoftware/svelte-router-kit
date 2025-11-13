@@ -1,18 +1,18 @@
-import { calculateHref } from "@wjfe/n-savant/core";
+import { calculateHref } from "@svelte-router/core/kernel";
 import type { CalculateSkHrefOptions } from "./types.js";
 
 /**
- * Helper function that combines multiple HREF's into a single HREF using `@wjfe/n-savant`'s `calculateHref` function 
- * for the path routing universe.
+ * Helper function that combines multiple HREF's into a single HREF using `@svelte-router/core`'s `calculateHref` 
+ * function for the path routing universe.
  * 
  * #### Why?
  * 
  * To assist in the calculation of HREF's for hyperlinks used by Sveltekit's `<a>` tags so they play nicely with 
- * `@wjfe/n-savant`'s routing universes.
+ * `@svelte-router/core`'s routing universes.
  * 
  * @example
  * ```ts
- * import { calculateSkHref } from '@wjfe/n-savant-sk';
+ * import { calculateSkHref } from '@svelte-router/kit';
  * 
  * // The demo project in the /demo folder uses the query string to switch between
  * // single and multi-hash routing.  If (Sveltekit's) path routing doesn't 
@@ -23,7 +23,7 @@ import type { CalculateSkHrefOptions } from "./types.js";
  * 
  * @example
  * ```ts
- * import { calculateSkHref } from '@wjfe/n-savant-sk';
+ * import { calculateSkHref } from '@svelte-router/kit';
  * 
  * // This one preserves the hash fragment to ensure any hash routing universes
  * // remain intact.
@@ -34,7 +34,8 @@ import type { CalculateSkHrefOptions } from "./types.js";
  *
  * 1. Try to always use reactively in `$derived`, `$effect` or templates, since it reads reactive data.
  * 2. If a new hash fragment is desired, simply add it to one of the given HREF's.
- * 3. If you want to calculate an HREF for a hash routing universe, use `@wjfe/n-savant`'s `calculateHref` function.
+ * 3. If you want to calculate an HREF for a hash routing universe, use `@svelte-router/core`'s `calculateHref` 
+ * function.
  * 4. If you don't need to join HREF's or preserve query or hash, you most likely don't need this or the
  * base `calculateHref` function, and can simply use the HREF you already have.
  *

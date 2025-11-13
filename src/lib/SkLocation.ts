@@ -1,6 +1,6 @@
 import { goto } from "$app/navigation";
-import { calculateHref, calculateState, LocationLite, preserveQueryInUrl } from "@wjfe/n-savant/core";
-import type { Location } from "@wjfe/n-savant";
+import { calculateHref, calculateState, LocationLite, preserveQueryInUrl } from "@svelte-router/core/kernel";
+import type { Location } from "@svelte-router/core";
 import type { SkGotoOptions, SkNavigationOptions } from "./types.js";
 import { SkHistoryApi } from "./SkHistoryApi.js";
 
