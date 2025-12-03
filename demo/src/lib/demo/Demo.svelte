@@ -17,18 +17,11 @@
     import FallbackContent from './FallbackContent.svelte';
     import hashMode from '$lib/state/hashMode.svelte.js';
     import Shallow from './Shallow.svelte';
-    import { init } from '@svelte-router/kit';
 
     type Props = {
         hash: Exclude<Hash, false>;
     };
     let { hash }: Props = $props();
-
-    // console.debug('Location:', location);
-    // if (!location) {
-    //     console.debug('Initializing router from Demo.svelte...');
-    //     init();
-    // }
 
     let hashPath = $derived(hash === true ? location.hashPaths.single : location.hashPaths[hash]);
 </script>
@@ -43,7 +36,7 @@
     </header>
     <div class="box">
         <Router {hash}>
-            {#snippet children(state, rs)}
+            {#snippet children({ state, rs })}
                 <Tabs>
                     <LinkContext prependBasePath>
                         <li role="tab" {@attach activeBehavior(rs, { key: 'intro', class: 'is-active' })}>

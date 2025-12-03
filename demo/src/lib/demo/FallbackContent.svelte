@@ -15,7 +15,7 @@
 </script>
 
 <KitFallback {hash}>
-    {#snippet children(state, rs)}
+    {#snippet children({ rs })}
         <Content role="tabpanel">
             <h3>Fallback Content</h3>
             <p>

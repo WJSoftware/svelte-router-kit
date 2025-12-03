@@ -23,7 +23,7 @@
 <Container>
     <Columns.Root>
         <Columns.Column size={2}>
-            <LinkButton isSize={isSizes.small} isColor={isColors.info} href="https://wjfe-n-savant.hashnode.space">
+            <LinkButton isSize={isSizes.small} isColor={isColors.info} target="_blank" rel="noopener noreferrer" href="https://wjfe-n-savant.hashnode.space">
                 Online Docs
             </LinkButton>
         </Columns.Column>
@@ -34,7 +34,7 @@
             </LinkButton>
         </Columns.Column>
         <Columns.Column>
-            <LinkButton isSize={isSizes.small} isColor={isColors.link} target="_blank" rel="noopener noreferrer" href="https://github.com/WJSoftware/svelte-router-core">
+            <LinkButton isSize={isSizes.small} isColor={isColors.link} target="_blank" rel="noopener noreferrer" href="https://github.com/WJSoftware/svelte-router">
                 <i class="fab fa-github"></i>
                 GitHub Repository (core package)
             </LinkButton>

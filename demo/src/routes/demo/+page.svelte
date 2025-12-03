@@ -1,7 +1,5 @@
 <script lang="ts">
     import Section from '$lib/bulma/Section.svelte';
-    import { location, Route, Router } from '@svelte-router/core';
-    import { KitFallback } from '@svelte-router/kit';
     import type { PageProps } from './$types';
     import Message from '$lib/bulma/Message.svelte';
     import Content from '$lib/bulma/Content.svelte';
