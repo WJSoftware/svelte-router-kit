@@ -29,6 +29,24 @@ describe("init", () => {
             defaultHash: true,
         }));
     });
+    test("Should call initCore with hashMode set to 'single' by default.", () => {
+        init();
+        expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
+            hashMode: 'single',
+        }));
+    });
+    test("Should call initCore with defaultHash set to true when hashMode is 'single'.", () => {
+        init({ hashMode: 'single' });
+        expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
+            defaultHash: true,
+        }));
+    });
+    test("Should call initCore with defaultHash set to false when hashMode is 'multi'.", () => {
+        init({ hashMode: 'multi' });
+        expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
+            defaultHash: false,
+        }));
+    });
     test("Should call initCore disallowing path routing.", () => {
         init();
         expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
@@ -38,6 +56,7 @@ describe("init", () => {
     test("Should forward options to initCore.", () => {
         const options: KitInitOptions = {
             hashMode: 'multi',
+            defaultHash: 'xyz',
             logger: true,
             trace: {
                 routerHierarchy: true,
