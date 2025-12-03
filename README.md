@@ -2,7 +2,7 @@
 
 > Hash router for Sveltekit projects
 
-This is an extension package of the [@svelte-router/core](https://github.com/WJSoftware/svelte-router) SPA router, and enables the use of the router in hash mode in Sveltekit projects.
+This is an extension package for [webJose's Svelte Router](https://github.com/WJSoftware/svelte-router), and enables the use of the router in hash mode in Sveltekit projects.
 
 ## Why Would I Need This?
 
@@ -15,7 +15,7 @@ But what if you wanted to do hash routing on top of Sveltekit's path routing?  Y
 ### Useful Scenarios
 
 1. You could show a complex dialog box that is driven by hash routing.
-2. You could mount a micro-frontend that routes with a path in the hash.
+2. You could mount your application as a micro-frontend that routes with multiple paths in the hash fragment.
 3. You could drive your tabs components with individual named hash paths (this is demonstrated in this repository's demo project).
 
 ## Quickstart
@@ -33,7 +33,7 @@ But what if you wanted to do hash routing on top of Sveltekit's path routing?  Y
     </script>
     ```
 3. Add routers, routes and links for hash navigation as you please.  Note that these are still imported from the core package, `@svelte-router/core`.
-4. **EXCEPTION**:  Don't use the core package's `Fallback` component.  Use this package's `SkFallback` component for 
+4. **EXCEPTION**:  Don't use the core package's `Fallback` component.  Use this package's `KitFallback` component for 
 fallback content to avoid flashes of unwanted content when rendering on the server.
 
 > **⚡ Attention!**
