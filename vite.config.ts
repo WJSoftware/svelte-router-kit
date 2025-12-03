@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { playwright, PlaywrightBrowserProvider } from '@vitest/browser-playwright';
 
 export default defineConfig({
 	plugins: [sveltekit()],
@@ -10,10 +11,9 @@ export default defineConfig({
 				extends: './vite.config.ts',
 				test: {
 					name: 'client',
-					environment: 'browser',
 					browser: {
 						enabled: true,
-						provider: 'playwright',
+						provider: playwright(),
 						instances: [{ browser: 'firefox' }]
 					},
 					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
