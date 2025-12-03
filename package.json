@@ -52,6 +52,7 @@
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^6.0.0",
 		"@vitest/browser": "^4.0.15",
+		"@vitest/browser-playwright": "^4.0.15",
 		"playwright": "^1.53.0",
 		"publint": "^0.3.2",
 		"svelte-check": "^4.0.0",

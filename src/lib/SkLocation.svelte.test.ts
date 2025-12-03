@@ -106,7 +106,7 @@ describe("SkLocation", () => {
 
             beforeAll(() => {
                 location = new SkLocation();
-                cleanup = initCore(location, { defaultHash: true, hashMode: ru.hashMode });
+                cleanup = initCore(location, { hashMode: ru.hashMode });
             });
 
             afterAll(() => {
@@ -116,7 +116,6 @@ describe("SkLocation", () => {
             afterEach(() => {
                 vi.resetAllMocks();
             });
-
 
             test("Should call goto with the correct path and state.", () => {
                 const tc = ({
