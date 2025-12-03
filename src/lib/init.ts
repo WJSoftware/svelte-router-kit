@@ -14,7 +14,8 @@ export function init(options?: KitInitOptions) {
         cleanupFn?.();
     }
     cleanupFn = initCore(new KitLocation(), {
-        defaultHash: true,
+        defaultHash: options?.hashMode === 'single' || options?.hashMode === undefined,
+        hashMode: 'single',
         ...options,
         disallowPathRouting: true,
     });
