@@ -1,20 +1,20 @@
 import { goto } from "$app/navigation";
 import { calculateHref, calculateState, LocationLite, preserveQueryInUrl } from "@svelte-router/core/kernel";
 import type { Location } from "@svelte-router/core";
-import type { SkGotoOptions, SkNavigationOptions } from "./types.js";
-import { SkHistoryApi } from "./SkHistoryApi.js";
+import type { KitGotoOptions, KitNavigationOptions } from "./types.js";
+import { KitHistoryApi } from "./KitHistoryApi.js";
 
-export class SkLocation extends LocationLite implements Location {
+export class KitLocation extends LocationLite implements Location {
     constructor() {
-        super(new SkHistoryApi());
+        super(new KitHistoryApi());
     }
-    skGoTo(href: string, options?: SkGotoOptions): Promise<void> {
+    kitGoTo(href: string, options?: KitGotoOptions): Promise<void> {
         if (options?.preserveQuery && href !== '') {
             href = preserveQueryInUrl(href, options.preserveQuery);
         }
         return goto(href, options);
     }
-    skNavigate(href: string, options?: SkNavigationOptions): Promise<void> {
+    kitNavigate(href: string, options?: KitNavigationOptions): Promise<void> {
         if (href !== '') {
             href = calculateHref({
                 hash: options?.hash,

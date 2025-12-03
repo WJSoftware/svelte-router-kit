@@ -1,5 +1,5 @@
 import { calculateHref } from "@svelte-router/core/kernel";
-import type { CalculateSkHrefOptions } from "./types.js";
+import type { KitCalculateHrefOptions } from "./types.js";
 
 /**
  * Helper function that combines multiple HREF's into a single HREF using `@svelte-router/core`'s `calculateHref` 
@@ -43,6 +43,6 @@ import type { CalculateSkHrefOptions } from "./types.js";
  * @param href The HREF's used to calculate the final HREF for the desired routing universe.
  * @returns The calculated HREF.
  */
-export function calculateSkHref(options: CalculateSkHrefOptions, ...hrefs: string[]): string {
+export function kitCalculateHref(options: KitCalculateHrefOptions, ...hrefs: string[]): string {
     return calculateHref({ ...options, hash: false }, ...hrefs);
 }
