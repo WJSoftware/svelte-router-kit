@@ -1,9 +1,9 @@
 import { describe, test, expect, beforeEach, afterEach, vi, beforeAll, afterAll } from "vitest";
-import { SkLocation } from "./SkLocation.js";
+import { KitLocation } from "./KitLocation.js";
 import { calculateHref, initCore, preserveQueryInUrl } from "@svelte-router/core/kernel";
 import { goto } from "$app/navigation";
 
-let location: SkLocation;
+let location: KitLocation;
 
 const hoistedVars = vi.hoisted(() => ({
     gotoMock: vi.fn(),
@@ -29,7 +29,7 @@ vi.mock(import("@svelte-router/core/kernel"), async (importActual) => {
 describe("SkLocation", () => {
     let cleanup: () => void;
     beforeEach(() => {
-        location = new SkLocation();
+        location = new KitLocation();
         cleanup = initCore(location, { defaultHash: true });
         vi.resetAllMocks();
     });
@@ -41,7 +41,7 @@ describe("SkLocation", () => {
 
     describe("skGoTo", () => {
         test("Should call goto with the correct path.", () => {
-            location.skGoTo("/test");
+            location.kitGoTo("/test");
             expect(goto).toHaveBeenCalledWith("/test", undefined);
         });
         test.each([
@@ -54,7 +54,7 @@ describe("SkLocation", () => {
                 text: 'not call',
             },
         ])("Should $text preserveQueryInUrl if preserveQuery is $preserveQuery .", ({ preserveQuery }) => {
-            location.skGoTo("/test", { preserveQuery });
+            location.kitGoTo("/test", { preserveQuery });
             if (preserveQuery) {
                 expect(preserveQueryInUrl).toHaveBeenCalledWith("/test", preserveQuery);
             } else {
@@ -64,7 +64,7 @@ describe("SkLocation", () => {
         test("Should call goto with the correct path after preserving the query string.", () => {
             vi.mocked(preserveQueryInUrl).mockReturnValue("/test?a=b");
             const options = { preserveQuery: true };
-            location.skGoTo("/test", options);
+            location.kitGoTo("/test", options);
             expect(goto).toHaveBeenCalledWith("/test?a=b", options);
         });
         test("Should forward all of Sveltekit's goto() options to the goto() function.", () => {
@@ -76,7 +76,7 @@ describe("SkLocation", () => {
                 invalidateAll: true,
                 invalidate: 'abc',
             };
-            location.skGoTo("/test", options);
+            location.kitGoTo("/test", options);
             expect(goto).toHaveBeenCalledOnce();
             expect(hoistedVars.gotoMock.mock.lastCall![1]).toHaveProperty("replaceState", options.replaceState);
             expect(hoistedVars.gotoMock.mock.lastCall![1]).toHaveProperty("noScroll", options.noScroll);
@@ -105,7 +105,7 @@ describe("SkLocation", () => {
             let cleanup: () => void;
 
             beforeAll(() => {
-                location = new SkLocation();
+                location = new KitLocation();
                 cleanup = initCore(location, { hashMode: ru.hashMode });
             });
 
@@ -132,7 +132,7 @@ describe("SkLocation", () => {
                         expectedState: { path: {}, hash: { [`${ru.hash}`]: 'abc' } },
                     },
                 })[ru.hashMode];
-                location.skNavigate(tc.inputUrl, { hash: ru.hash, state: tc.state });
+                location.kitNavigate(tc.inputUrl, { hash: ru.hash, state: tc.state });
                 expect(goto).toHaveBeenCalledWith(tc.expectedHash, { hash: ru.hash, state: tc.expectedState });
             });
             test.each([
@@ -147,7 +147,7 @@ describe("SkLocation", () => {
                     href: ''
                 },
             ])("Should $text calculateHref whenever the href is $text2 .", ({ href }) => {
-                location.skNavigate(href, { hash: ru.hash });
+                location.kitNavigate(href, { hash: ru.hash });
                 if (href) {
                     expect(calculateHref).toHaveBeenCalledWith(expect.any(Object), href);
                 } else {
@@ -166,7 +166,7 @@ describe("SkLocation", () => {
                     multi: "?a=b#p1=/test",
                 }[ru.hashMode];
                 const options = { hash: ru.hash, preserveQuery: true, state };
-                location.skNavigate("/test", options);
+                location.kitNavigate("/test", options);
                 expect(goto).toHaveBeenCalledWith(expectedHref, expect.objectContaining({ state: expectedState }));
             });
             test("Should forward all of Sveltekit's goto() options to the goto() function.", () => {
@@ -183,7 +183,7 @@ describe("SkLocation", () => {
                     single: { path: {}, hash: { single: { test: 1 } } },
                     multi: { path: {}, hash: { [`${ru.hash}`]: { test: 1 } } },
                 }[ru.hashMode];
-                location.skNavigate("/test", options);
+                location.kitNavigate("/test", options);
                 expect(goto).toHaveBeenCalledOnce();
                 expect(hoistedVars.gotoMock.mock.lastCall![1]).toHaveProperty("replaceState", options.replaceState);
                 expect(hoistedVars.gotoMock.mock.lastCall![1]).toHaveProperty("noScroll", options.noScroll);

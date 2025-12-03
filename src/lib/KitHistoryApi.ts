@@ -10,7 +10,7 @@ function assertValidUrl(url: string | URL | null | undefined): asserts url is st
     }
 }
 
-export class SkHistoryApi implements HistoryApi {
+export class KitHistoryApi implements HistoryApi {
     constructor() {
         if (browser && !isConformantState(page.state)) {
             // I tried with replaceState() here, throws with error "cannot use before router initializes".

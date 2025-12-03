@@ -1,7 +1,7 @@
 import { goto } from "$app/navigation";
 import type { Page } from "@sveltejs/kit";
 import { describe, test, expect, vi, beforeEach, afterEach, beforeAll, afterAll } from "vitest";
-import { SkHistoryApi } from "./SkHistoryApi.js";
+import { KitHistoryApi } from "./KitHistoryApi.js";
 
 const historyMocks = {
     pushState: vi.fn(),
@@ -70,10 +70,10 @@ describe("SkHistoryApi", () => {
         vi.unstubAllGlobals();
     });
 
-    let historyApi: SkHistoryApi;
+    let historyApi: KitHistoryApi;
 
     beforeEach(() => {
-        historyApi = new SkHistoryApi();
+        historyApi = new KitHistoryApi();
     });
 
     afterEach(() => {

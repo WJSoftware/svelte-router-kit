@@ -1,8 +1,8 @@
 import { describe, test, expect, vi, afterEach } from "vitest";
 import { init } from "./init.js";
 import { initCore } from "@svelte-router/core/kernel";
-import { SkLocation } from "./SkLocation.js";
-import type { SkInitOptions } from "./types.js";
+import { KitLocation } from "./KitLocation.js";
+import type { KitInitOptions } from "./types.js";
 
 vi.mock(import("@svelte-router/core/kernel"), async (importActual) => {
     return {
@@ -25,18 +25,18 @@ describe("init", () => {
     
     test("Should call initCore with defaultHash set to true by default.", () => {
         init();
-        expect(initCore).toHaveBeenCalledWith(expect.any(SkLocation), expect.objectContaining({
+        expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
             defaultHash: true,
         }));
     });
     test("Should call initCore disallowing path routing.", () => {
         init();
-        expect(initCore).toHaveBeenCalledWith(expect.any(SkLocation), expect.objectContaining({
+        expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
             disallowPathRouting: true,
         }));
     });
     test("Should forward options to initCore.", () => {
-        const options: SkInitOptions = {
+        const options: KitInitOptions = {
             hashMode: 'multi',
             logger: true,
             trace: {
@@ -44,23 +44,23 @@ describe("init", () => {
             }
         };
         init(options);
-        expect(initCore).toHaveBeenCalledWith(expect.any(SkLocation), expect.objectContaining({
+        expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
             ...options,
             disallowPathRouting: true,
         }));
     });
     test("Should respect any defaultHash option provided by the user.", () => {
-        const options: SkInitOptions = {
+        const options: KitInitOptions = {
             defaultHash: 'abc',
         };
         init(options);
-        expect(initCore).toHaveBeenCalledWith(expect.any(SkLocation), expect.objectContaining({
+        expect(initCore).toHaveBeenCalledWith(expect.any(KitLocation), expect.objectContaining({
             defaultHash: 'abc',
             disallowPathRouting: true,
         }));
     });
     test("Should throw an error if defaultHash is set to false.", () => {
-        const options: SkInitOptions = {
+        const options: KitInitOptions = {
             // @ts-expect-error TS2367 -- Fully expected, as typing has removed false as a valid value.
             defaultHash: false,
         };
