@@ -2,13 +2,13 @@
 
 > Hash router for Sveltekit projects
 
-This is an extension package of the [@svelte-router/core](https://github.com/WJSoftware/svelte-router-core) SPA router, and enables the use of the router in hash mode in Sveltekit projects.
+This is an extension package of the [@svelte-router/core](https://github.com/WJSoftware/svelte-router) SPA router, and enables the use of the router in hash mode in Sveltekit projects.
 
 ## Why Would I Need This?
 
 Sveltekit has an excellent file-based router.  You should always stick to the built-in router for routing your application.  However, as with every other router in existence, you can only do path routing or hash routing, but not both.
 
-The `@svelte-router/core` router was born to break this barrier:  This SPA router can do path and hash routing simultaneously.  However, this is a router for SPA's and PWA's that render on the client.  It was not designed for SSR scenarios.  After all, Sveltekit has routing capabilities included.
+**webJose's Svelte Router** router was born to break this barrier:  This SPA router can do path and hash routing simultaneously.  However, this is a router for SPA's and PWA's that render on the client.  It was not designed for SSR scenarios.  After all, Sveltekit has routing capabilities included.
 
 But what if you wanted to do hash routing on top of Sveltekit's path routing?  You can today, with this router extension.
 
@@ -33,12 +33,14 @@ But what if you wanted to do hash routing on top of Sveltekit's path routing?  Y
     </script>
     ```
 3. Add routers, routes and links for hash navigation as you please.  Note that these are still imported from the core package, `@svelte-router/core`.
+4. **EXCEPTION**:  Don't use the core package's `Fallback` component.  Use this package's `SkFallback` component for 
+fallback content to avoid flashes of unwanted content when rendering on the server.
 
 > **⚡ Attention!**
 > 
-> Early testing has revealed what may or may not be a bug in Svelte or Sveltekit.  The situation:  Just importing `init` from `@svelte-router/kit` triggers error `rune_outside_svelte` on the `trace.svelte.js` file in the `@svelte-router/core` package.  To overcome this, just add `{ ssr: { noExternal: ["@svelte-router/core"] }}` to Vite's configuration.
+> There might be a bug in Svelte or Sveltekit.  Situation:  Just importing `init` from `@svelte-router/kit` triggers error `rune_outside_svelte` on the `trace.svelte.js` file in the `@svelte-router/core` package.  To overcome this, just add `{ ssr: { noExternal: ["@svelte-router/core"] }}` to Vite's configuration.
 >
-> Hopefully, I'll be able to figure more about this problem in the coming weeks.
+> If this becomes unneeded, this warning will be removed; if this is just the reality of things, this warning will become one more step in the quickstart.
 
 ## Limitations
 
@@ -46,4 +48,4 @@ But what if you wanted to do hash routing on top of Sveltekit's path routing?  Y
 
 ---
 
-Generally speaking, you need to understand the `@svelte-router/core` router, so have handy its [online documentation](https://wjfe-n-savant.hashnode.space/).
+Generally speaking, you need to understand the core router, so have handy its [online documentation](https://wjfe-n-savant.hashnode.space/).
