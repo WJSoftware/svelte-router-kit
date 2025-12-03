@@ -10,10 +10,10 @@
         header?: Snippet;
     };
 
-    let { tag, isColor, children, header, class: cssClass, ...restProps }: Props = $props();
+    let { tag = 'article', isColor, children, header, class: cssClass, ...restProps }: Props = $props();
 </script>
 
-<svelte:element this={tag ?? 'article'} class={['message', isColor]} {...restProps}>
+<svelte:element this={tag} class={['message', isColor]} {...restProps}>
     {#if header}
         <div class="message-header">
             {@render header?.()}

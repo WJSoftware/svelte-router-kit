@@ -1,7 +1,9 @@
 <script lang="ts">
+    import { isColors } from '$lib/bulma/common';
     import Content from '$lib/bulma/Content.svelte';
-    import type { Hash } from '@wjfe/n-savant';
-    import { SkFallback } from '@wjfe/n-savant-sk';
+    import Notification from '$lib/bulma/Notification.svelte';
+    import type { Hash } from '@svelte-router/core';
+    import { KitFallback } from '@svelte-router/kit';
 
     type Props = {
         hash: Hash;
@@ -12,7 +14,7 @@
     }: Props = $props();
 </script>
 
-<SkFallback {hash}>
+<KitFallback {hash}>
     {#snippet children(state, rs)}
         <Content role="tabpanel">
             <h3>Fallback Content</h3>
@@ -25,5 +27,13 @@
             </p>
             <pre>{JSON.stringify(rs, null, 2)}</pre>
         </Content>
+        <Notification isColor={isColors.warning}>
+            <h3 class="title is-5"><i class="fa-solid fa-lightbulb"></i>&nbsp;Pro Tip</h3>
+            <p>
+                Always use the <code>&lt;SkFallback&gt;</code> component when using <code>@svelte-router/kit</code> 
+                because the stock <code>&lt;Fallback&gt;</code> component from <code>@svelte-router/core</code> renders 
+                content in the server, producing brief flashes of content.
+            </p>
+        </Notification>
     {/snippet}
-</SkFallback>
+</KitFallback>
