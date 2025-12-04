@@ -1,6 +1,6 @@
 <script lang="ts">
     import theme from "$lib/state/theme.svelte.js";
-    import { fly, slide } from "svelte/transition";
+    import { fly } from "svelte/transition";
 
     const themeIcons = {
         light: "fa-sun",

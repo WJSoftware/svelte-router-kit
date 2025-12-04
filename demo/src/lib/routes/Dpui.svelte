@@ -6,7 +6,7 @@
     <div class="content">
         <p>
             Disconnected Pieces of User Interface (DPUI) is a feature of
-            <code>@wjfe/n-savant</code> (and inherited by <code>@wjfe/n-savant-sk</code>)
+            <code>@svelte-router/core</code> (and inherited by <code>@svelte-router/kit</code>)
             that allows you to render user interface in different places of the document's 
             HTML markup for a single route match.
         </p>
@@ -22,7 +22,7 @@
             the hash fragment is empty or <code>#/</code>), additional links are added
             to the navigation bar.  These links were not present when the application was
             pre-rendered by SvelteKit because hash fragments are not sent to the server.
-            Instead, they were added by <code>@wjfe/n-savant-sk</code> as part of the
+            Instead, they were added by <code>@svelte-router/kit</code> as part of the
             <code>home</code> route.
         </p>
     </div>

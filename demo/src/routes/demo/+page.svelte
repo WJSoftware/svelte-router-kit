@@ -1,15 +1,12 @@
 <script lang="ts">
     import Section from '$lib/bulma/Section.svelte';
-    import { location, Route, Router } from '@wjfe/n-savant';
-    import { SkFallback } from '@wjfe/n-savant-sk';
     import type { PageProps } from './$types';
     import Message from '$lib/bulma/Message.svelte';
     import Content from '$lib/bulma/Content.svelte';
-    import { isColors, isSizes } from '$lib/bulma/common';
+    import { isColors } from '$lib/bulma/common';
     import Button from '$lib/bulma/Button.svelte';
     import Demo from '$lib/demo/Demo.svelte';
     import { page } from '$app/state';
-    import { info } from 'sass';
 
     let { data }: PageProps = $props();
 
@@ -29,7 +26,7 @@
         <Demo hash="d1" />
         <Demo hash="d2" />
     {:else}
-        <Demo hash={true} />
+        <Demo hash />
     {/if}
     <Section>
         <Message isColor={isColors.info}>
@@ -43,7 +40,7 @@
                     query parameter in the URL.
                 </p>
                 <p>
-                    Each of the two <code>&lt;Demo&gt;</code> components is using a different named path in the hash
+                    Each of the two <code>&lt;Demo&gt;</code> components are using different named paths in the hash
                     fragment, so they can coexist peacefully.
                 </p>
                 <Button isColor={isColors.info} onclick={enableSingleHashRouting}>
@@ -55,7 +52,7 @@
                     routes displayed at the same time, we cannot <em>in single hash routing mode</em>.
                 </p>
                 <p>
-                    The good news is that <code>@wjfe/n-savant</code> supports <strong>multi-hash routing</strong>,
+                    The good news is that <code>@svelte-router/core</code> supports <strong>multi-hash routing</strong>,
                     which allows multiple routers to coexist, each using a different named path in the hash fragment.
                 </p>
                 <Button isColor={isColors.info} onclick={enableMultiHashRouting}>

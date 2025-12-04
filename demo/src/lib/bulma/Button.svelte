@@ -1,17 +1,12 @@
 <script lang="ts">
-    import type { Snippet } from "svelte";
     import type { HTMLButtonAttributes } from "svelte/elements";
-    import type { IsColor } from "./common";
+    import ButtonImpl, { type BulmaButtonProps } from "./ButtonImpl.svelte";
 
-    type Props = Omit<HTMLButtonAttributes, 'type'> & {
+    type Props = Omit<HTMLButtonAttributes, 'type'> & BulmaButtonProps & {
         type?: HTMLButtonAttributes['type'];
-        isColor?: IsColor;
-        children?: Snippet;
     };
 
-    let { type = 'button', isColor, children, class: cssClass, ...restProps }: Props = $props();
+    let { type = 'button', ...restProps }: Props = $props();
 </script>
 
-<button {type} class={['button', cssClass, isColor]} {...restProps}>
-    {@render children?.()}
-</button>
+<ButtonImpl tag="button" {type} {...restProps} />
