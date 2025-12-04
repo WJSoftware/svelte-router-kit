@@ -29,7 +29,7 @@
         <Route key="in-code" path="/in-code">
             <InCode />
         </Route>
-        <FallbackContent /> <!-- Contains <SkFallback> internally -->
+        <FallbackContent /> <!-- Contains <KitFallback> internally -->
     {/snippet}
 </Router>`;
 </script>

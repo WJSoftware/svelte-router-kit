@@ -52,16 +52,19 @@
                     the URL path or hash.
                 </p>
                 <p>
-                    You can close the modal by clicking the close button, clicking outside the modal, pressing the
+                    You can close the modal by clicking the close button, clicking outside the modal, hitting the
                     <code>Escape</code> key, or using your browser's <em>Back</em> button. The point of this exercise is
                     to demonstrate that the <em>Back</em> button works as expected.
                 </p>
                 <Message>
                     <h5>Fun Fact</h5>
                     <p>
-                        If you close the modal using the browser's <em>Back</em> button, you can then use the
-                        <em>Forward</em>
-                        button to reopen the modal.
+                        All methods of closing the modal trigger a call to <code>location.back()</code>, which reverts 
+                        the history state to the previous one, effectively closing the modal.
+                    </p>
+                    <p>
+                        No matter how you close the modal, it can be reopened by clicking the browser's <em>Forward</em> 
+                        button.
                     </p>
                 </Message>
             </Content>

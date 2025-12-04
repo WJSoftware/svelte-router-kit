@@ -26,7 +26,7 @@
         <Demo hash="d1" />
         <Demo hash="d2" />
     {:else}
-        <Demo hash={true} />
+        <Demo hash />
     {/if}
     <Section>
         <Message isColor={isColors.info}>
@@ -40,7 +40,7 @@
                     query parameter in the URL.
                 </p>
                 <p>
-                    Each of the two <code>&lt;Demo&gt;</code> components is using a different named path in the hash
+                    Each of the two <code>&lt;Demo&gt;</code> components are using different named paths in the hash
                     fragment, so they can coexist peacefully.
                 </p>
                 <Button isColor={isColors.info} onclick={enableSingleHashRouting}>

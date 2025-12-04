@@ -30,7 +30,7 @@
         <Notification isColor={isColors.warning}>
             <h3 class="title is-5"><i class="fa-solid fa-lightbulb"></i>&nbsp;Pro Tip</h3>
             <p>
-                Always use the <code>&lt;SkFallback&gt;</code> component when using <code>@svelte-router/kit</code> 
+                Always use the <code>&lt;KitFallback&gt;</code> component when using <code>@svelte-router/kit</code> 
                 because the stock <code>&lt;Fallback&gt;</code> component from <code>@svelte-router/core</code> renders 
                 content in the server, producing brief flashes of content.
             </p>
