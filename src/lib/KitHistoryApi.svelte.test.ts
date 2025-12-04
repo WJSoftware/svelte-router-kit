@@ -59,7 +59,7 @@ vi.mock(import("$app/state"), async (importOriginal) => {
     }
 });
 
-describe("SkHistoryApi", () => {
+describe("KitHistoryApi", () => {
 
     beforeAll(() => {
         // vi.stubGlobal("window", { history: historyMock });

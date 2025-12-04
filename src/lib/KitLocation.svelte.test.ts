@@ -26,7 +26,7 @@ vi.mock(import("@svelte-router/core/kernel"), async (importActual) => {
     };
 });
 
-describe("SkLocation", () => {
+describe("KitLocation", () => {
     let cleanup: () => void;
     beforeEach(() => {
         location = new KitLocation();
@@ -39,7 +39,7 @@ describe("SkLocation", () => {
         vi.resetAllMocks();
     });
 
-    describe("skGoTo", () => {
+    describe("kitGoTo", () => {
         test("Should call goto with the correct path.", () => {
             location.kitGoTo("/test");
             expect(goto).toHaveBeenCalledWith("/test", undefined);
@@ -100,8 +100,8 @@ describe("SkLocation", () => {
         hash: 'p1',
     },
 ].forEach((ru) => {
-    describe('SkLocation', () => {
-        describe(`skNavigate - ${ru.desc}`, () => {
+    describe('KitLocation', () => {
+        describe(`kitNavigate - ${ru.desc}`, () => {
             let cleanup: () => void;
 
             beforeAll(() => {
