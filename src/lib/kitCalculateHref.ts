@@ -12,22 +12,22 @@ import type { KitCalculateHrefOptions } from "./types.js";
  * 
  * @example
  * ```ts
- * import { calculateSkHref } from '@svelte-router/kit';
+ * import { kitCalculateHref } from '@svelte-router/kit';
  * 
  * // The demo project in the /demo folder uses the query string to switch between
  * // single and multi-hash routing.  If (Sveltekit's) path routing doesn't 
  * // preserve the query string, errors about mismatched routing universes will 
  * // occur.
- * const href = $derived(calculateSkHref({ preserveQuery: true }, '/demo'));
+ * const href = $derived(kitCalculateHref({ preserveQuery: true }, '/demo'));
  * ```
  * 
  * @example
  * ```ts
- * import { calculateSkHref } from '@svelte-router/kit';
+ * import { kitCalculateHref } from '@svelte-router/kit';
  * 
  * // This one preserves the hash fragment to ensure any hash routing universes
  * // remain intact.
- * const href = $derived(calculateSkHref({ preserveHash: true }, '/abc'));
+ * const href = $derived(kitCalculateHref({ preserveHash: true }, '/abc'));
  * ```
  * 
  * #### Tips
