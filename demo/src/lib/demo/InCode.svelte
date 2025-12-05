@@ -6,31 +6,31 @@
     import "svelte-highlight/styles/brewer.css";
 
     const code = `<Router>
-    {#snippet children(state, rs)}
-        <Tabs>
-            <LinkContext prependBasePath>
-                <li role="tab" {@attach activeBehavior(rs, { key: 'intro', class: 'is-active' })}>
-                    <Link href="/">Intro</Link>
-                </li>
-                <li role="tab" {@attach activeBehavior(rs, { key: 'how', class: 'is-active' })}>
-                    <Link href="/how">How It Works</Link>
-                </li>
-                <li role="tab" {@attach activeBehavior(rs, { key: 'in-code', class: 'is-active' })}>
-                    <Link href="/in-code">In Code</Link>
-                </li>
-            </LinkContext>
-        </Tabs>
-        <Route key="intro" path="/">
-            <Intro />
-        </Route>
-        <Route key="how" path="/how">
-            <How />
-        </Route>
-        <Route key="in-code" path="/in-code">
-            <InCode />
-        </Route>
-        <FallbackContent /> <!-- Contains <KitFallback> internally -->
-    {/snippet}
+  {#snippet children({ state, rs })}
+    <Tabs>
+      <LinkContext prependBasePath>
+        <li role="tab" {@attach activeBehavior(rs, { key: 'intro', class: 'is-active' })}>
+          <Link href="/">Intro</Link>
+        </li>
+        <li role="tab" {@attach activeBehavior(rs, { key: 'how', class: 'is-active' })}>
+          <Link href="/how">How It Works</Link>
+        </li>
+        <li role="tab" {@attach activeBehavior(rs, { key: 'in-code', class: 'is-active' })}>
+          <Link href="/in-code">In Code</Link>
+        </li>
+      </LinkContext>
+    </Tabs>
+    <Route key="intro" path="/">
+      <Intro />
+    </Route>
+    <Route key="how" path="/how">
+      <How />
+    </Route>
+    <Route key="in-code" path="/in-code">
+      <InCode />
+    </Route>
+    <FallbackContent /> <!-- Contains <KitFallback> internally -->
+  {/snippet}
 </Router>`;
 </script>
 

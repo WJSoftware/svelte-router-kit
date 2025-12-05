@@ -1,12 +1,30 @@
+<script module>
+    import { createContext } from 'svelte';
+
+    export class NavBarContext {
+        menuActive = $state(false);
+        closeOnLinkClick = $state(true);
+    }
+
+    export const [getNavBarCtx, setNavBarCtx] = createContext<NavBarContext>();
+</script>
 <script lang="ts">
     import type { HTMLAttributes } from 'svelte/elements';
 
     type Props = HTMLAttributes<HTMLElement> & {
         fixed?: 'top' | 'bottom' | undefined;
         transparent?: boolean;
+        closeOnLinkClick?: boolean;
     };
 
-    let { fixed, transparent, class: cssClass, children, ...restProps }: Props = $props();
+    let { fixed, transparent, closeOnLinkClick = true, class: cssClass, children, ...restProps }: Props = $props();
+
+    const navBarCtx = new NavBarContext();
+    setNavBarCtx(navBarCtx);
+
+    $effect.pre(() => {
+        navBarCtx.closeOnLinkClick = closeOnLinkClick;
+    });
 
     $effect(() => {
         if (!fixed) {

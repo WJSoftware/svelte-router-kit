@@ -1,21 +1,11 @@
 <script lang="ts">
     import Section from '$lib/bulma/Section.svelte';
     import Tabs from '$lib/bulma/Tabs.svelte';
-    import {
-        activeBehavior,
-        Link,
-        LinkContext,
-        Route,
-        Router,
-        location,
-        type Hash,
-    } from '@svelte-router/core';
-    // import {  location } from '@svelte-router/core/kernel';
+    import { activeBehavior, Link, LinkContext, Route, Router, location, type Hash } from '@svelte-router/core';
     import Intro from './Intro.svelte';
     import How from './How.svelte';
     import InCode from './InCode.svelte';
     import FallbackContent from './FallbackContent.svelte';
-    import hashMode from '$lib/state/hashMode.svelte.js';
     import Shallow from './Shallow.svelte';
 
     type Props = {
@@ -48,11 +38,9 @@
                         <li role="tab" {@attach activeBehavior(rs, { key: 'in-code', class: 'is-active' })}>
                             <Link {hash} href="/in-code">In Code</Link>
                         </li>
-                        {#if hashMode.isMultiHash}
-                            <li role="tab" {@attach activeBehavior(rs, { key: 'shallow', class: 'is-active' })}>
-                                <Link {hash} href="/shallow">Shallow Routing</Link>
-                            </li>
-                        {/if}
+                        <li role="tab" {@attach activeBehavior(rs, { key: 'shallow', class: 'is-active' })}>
+                            <Link {hash} href="/shallow">Shallow Routing</Link>
+                        </li>
                         <li role="tab" {@attach activeBehavior(rs, { key: '404', class: 'is-active' })}>
                             <Link {hash} href="/404">404</Link>
                         </li>

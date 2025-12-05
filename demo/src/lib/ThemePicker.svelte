@@ -20,7 +20,6 @@
 <style>
     button {
         display: grid;
-        padding: 0.7em;
         & > i {
             grid-area: 1 / 1 / 2 / 2;
         }

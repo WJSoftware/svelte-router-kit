@@ -30,19 +30,22 @@
     }
 </script>
 
-<NavBar.Root fixed={allPositions[posIndex]} style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+<NavBar.Root fixed={allPositions[posIndex]} class="py-1 px-2">
     <NavBar.Brand>
         <NavBar.Item>
             <img src={logo} alt="Logo" />
         </NavBar.Item>
         <NavBar.Item>
-            <h1 class="title is-4"><code>@svelte-router/kit</code> Demo</h1>
+            <h1 class="title is-4">@svelte-router/kit</h1>
         </NavBar.Item>
+        <NavBar.Burger />
     </NavBar.Brand>
-    <NavBar.Burger />
     <NavBar.Menu>
-        <NavBar.Item tag="a" isTab isActive={kitIsRouteActive('/')} href={kitCalculateHref({ preserveQuery: true }, '/')}
-            >Home</NavBar.Item
+        <NavBar.Item
+            tag="a"
+            isTab
+            isActive={kitIsRouteActive('/')}
+            href={kitCalculateHref({ preserveQuery: true }, '/')}>Home</NavBar.Item
         >
         <NavBar.Item
             tag="a"
@@ -51,6 +54,16 @@
             href={kitCalculateHref({ preserveQuery: true }, '/demo')}>Start Demo</NavBar.Item
         >
         {#snippet end()}
+            <NavBar.Item>
+                <a
+                    href="https://github.com/WJSoftware/svelte-router-kit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="GitHub Repository"
+                >
+                    <i class="fab fa-github"></i>
+                </a>
+            </NavBar.Item>
             <NavBar.Item>
                 Sveltekit Path: <code>{location?.url.pathname}</code>
             </NavBar.Item>
