@@ -35,6 +35,7 @@
 	"bugs": {
 		"url": "https://github.com/WJSoftware/svelte-router-kit/issues"
 	},
+	"homepage": "https://wjsoftware.github.io/svelte-router-kit/",
 	"license": "MIT",
 	"exports": {
 		".": {
