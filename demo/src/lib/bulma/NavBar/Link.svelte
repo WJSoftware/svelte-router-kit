@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { HTMLAnchorAttributes } from "svelte/elements";
+    import { getNavBarCtx } from "./Root.svelte";
 
     type Props = HTMLAnchorAttributes;
 
@@ -8,8 +9,16 @@
         children,
         ...restProps
     }: Props = $props();
+
+    const ctx = getNavBarCtx();
+
+    function handleClick() {
+        if (ctx.closeOnLinkClick) {
+            ctx.menuActive = !ctx.menuActive;
+        }
+    }
 </script>
 
-<a class={['navbar-link', cssClass]} {...restProps}>
+<a class={['navbar-link', cssClass]} {...restProps} onclick={handleClick}>
     {@render children?.()}
 </a>

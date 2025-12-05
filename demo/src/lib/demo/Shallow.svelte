@@ -3,6 +3,7 @@
     import Content from '$lib/bulma/Content.svelte';
     import Message from '$lib/bulma/Message.svelte';
     import { Modal } from '$lib/bulma/Modal';
+    import hashMode from '$lib/state/hashMode.svelte';
     import { Link, location, type Hash } from '@svelte-router/core';
 
     type Props = {
@@ -32,8 +33,9 @@
     </p>
     <p>
         Dialogs are a great use case for <code>@svelte-router/kit</code>. You could route your application with
-        Sveltekit's path routing, and use <code>@svelte-router/kit</code>'s hash routing to open and close modal dialogs,
-        instead of using history state. Or, you could use history state as directed in the Sveltekit document and use
+        Sveltekit's path routing, and use <code>@svelte-router/kit</code>'s hash routing to open and close modal
+        dialogs, instead of using history state. Or, you could use history state as directed in the Sveltekit document
+        and use
         <code>@svelte-router/kit</code>'s hash routing to drive complex content inside the dialog.
     </p>
     <Link class="button is-primary" {hash} preserveQuery href="" state={{ isOpen: true }}>Open Modal</Link>
@@ -45,7 +47,11 @@
                 <Modal.Title>Modal Title</Modal.Title>
             {/snippet}
             <Content>
-                <p>This is the modal body.</p>
+                {#if hashMode.isMultiHash}
+                    <p>This is the modal for hash path: <strong>{hash}</strong></p>
+                {:else}
+                    <p>This is the modal body.</p>
+                {/if}
                 <input type="text" class="input" placeholder="Focus is set here automatically" />
                 <p>
                     The modal was opened using shallow routing, which updated the history state data, but did not change
@@ -59,11 +65,11 @@
                 <Message>
                     <h5>Fun Fact</h5>
                     <p>
-                        All methods of closing the modal trigger a call to <code>location.back()</code>, which reverts 
+                        All methods of closing the modal trigger a call to <code>location.back()</code>, which reverts
                         the history state to the previous one, effectively closing the modal.
                     </p>
                     <p>
-                        No matter how you close the modal, it can be reopened by clicking the browser's <em>Forward</em> 
+                        No matter how you close the modal, it can be reopened by clicking the browser's <em>Forward</em>
                         button.
                     </p>
                 </Message>

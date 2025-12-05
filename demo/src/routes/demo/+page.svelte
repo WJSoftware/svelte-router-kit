@@ -35,29 +35,28 @@
             {/snippet}
             <Content>
                 {#if isMulti}
-                <p>
-                    This is multi-hash routing mode, enabled by the presence of the <code>?multi=true</code>
-                    query parameter in the URL.
-                </p>
-                <p>
-                    Each of the two <code>&lt;Demo&gt;</code> components are using different named paths in the hash
-                    fragment, so they can coexist peacefully.
-                </p>
-                <Button isColor={isColors.info} onclick={enableSingleHashRouting}>
-                    Enable Single Hash Routing Mode
-                </Button>
+                    <p>
+                        This is multi-hash routing mode, enabled by the presence of the <code>?multi=true</code>
+                        query parameter in the URL.
+                    </p>
+                    <p>
+                        Each of the two <code>&lt;Demo&gt;</code> components are using different named paths in the hash
+                        fragment, so they can coexist peacefully.
+                    </p>
+                    <Button class="text-wrap" isColor={isColors.info} onclick={enableSingleHashRouting}>
+                        Enable Single Hash Routing Mode
+                    </Button>
                 {:else}
-                <p>
-                    This surely is nice, but if we wanted to have more <code>Tabs</code> components with different
-                    routes displayed at the same time, we cannot <em>in single hash routing mode</em>.
-                </p>
-                <p>
-                    The good news is that <code>@svelte-router/core</code> supports <strong>multi-hash routing</strong>,
-                    which allows multiple routers to coexist, each using a different named path in the hash fragment.
-                </p>
-                <Button isColor={isColors.info} onclick={enableMultiHashRouting}>
-                    Enable Multi-Hash Routing
-                </Button>
+                    <p>
+                        This surely is nice, but if we wanted to have more <code>Tabs</code> components with different
+                        routes displayed at the same time, we cannot <em>in single hash routing mode</em>.
+                    </p>
+                    <p>
+                        The good news is that <code>@svelte-router/core</code> supports
+                        <strong>multi-hash routing</strong>, which allows multiple routers to coexist, each using a
+                        different named path in the hash fragment.
+                    </p>
+                    <Button class="text-wrap" isColor={isColors.info} onclick={enableMultiHashRouting}>Enable Multi-Hash Routing</Button>
                 {/if}
             </Content>
         </Message>
