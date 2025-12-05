@@ -35,7 +35,7 @@ import type { KitCalculateHrefOptions } from "./types.js";
  * 1. Try to always use reactively in `$derived`, `$effect` or templates, since it reads reactive data.
  * 2. If a new hash fragment is desired, simply add it to one of the given HREF's.
  * 3. If you want to calculate an HREF for a hash routing universe, use `@svelte-router/core`'s `calculateHref` 
- * function.
+ * or `calculateMultiHashFragment()` functions.
  * 4. If you don't need to join HREF's or preserve query or hash, you most likely don't need this or the
  * base `calculateHref` function, and can simply use the HREF you already have.
  *
