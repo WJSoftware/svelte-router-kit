@@ -4,6 +4,9 @@ import { playwright, PlaywrightBrowserProvider } from '@vitest/browser-playwrigh
 
 export default defineConfig({
 	plugins: [sveltekit()],
+	ssr: {
+		noExternal: ['@svelte-router/core']
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
