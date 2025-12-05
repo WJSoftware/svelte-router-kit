@@ -1,7 +1,7 @@
 import { createRawSnippet } from "svelte";
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import { render } from "svelte/server";
-import { init } from "./init.js";
+import { init } from "../init.js";
 
 // @ts-expect-error Not all properties are mocked.
 vi.mock(import("$app/state"), () => {

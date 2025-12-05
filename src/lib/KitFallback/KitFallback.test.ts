@@ -1,7 +1,8 @@
 import { createRawSnippet } from "svelte";
-import { afterAll, afterEach, beforeAll, describe, expect, test, vi } from "vitest";
+import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import { render } from "vitest-browser-svelte";
-import { init } from "./init.js";
+import { init } from "../init.js";
+import KitFallbackTester from "./KitFallbackTester.test.svelte";
 
 // @ts-expect-error Not all properties are mocked.
 vi.mock(import("$app/state"), () => {
@@ -23,7 +24,6 @@ describe("KitFallback", () => {
     });
 
     test("Should render when in browser environment.", async () => {
-        const KitFallbackTester = (await import("./KitFallbackTester.test.svelte")).default;
         const testId = "evidence-01";
         const children = createRawSnippet(() => ({
             render() {
