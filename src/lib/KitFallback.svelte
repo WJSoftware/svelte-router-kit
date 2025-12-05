@@ -3,7 +3,9 @@
     import { Fallback } from '@svelte-router/core';
     import type { ComponentProps } from 'svelte';
 
-    let { when, ...restProps }: ComponentProps<typeof Fallback> = $props();
+    let { ...restProps }: ComponentProps<typeof Fallback> = $props();
 </script>
 
-<Fallback when={(rs, noMatches) => browser && (when?.(rs, noMatches) || (!when && noMatches))} {...restProps} />
+{#if browser}
+    <Fallback {...restProps} />
+{/if}
