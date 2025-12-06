@@ -1,0 +1,17 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'demo/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: WJSoftware/cicd/.github/workflows/build-and-deploy-pages.yml@JP/Pages
+    with:
+      target_branch: Pages
+      project_folder: ./demo
+      output_folder: build
