@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    uses: WJSoftware/cicd/.github/workflows/build-and-deploy-pages.yml@JP/Pages
+    uses: WJSoftware/cicd/.github/workflows/build-and-deploy-pages.yml@main
     with:
       target_branch: Pages
       project_folder: ./demo
