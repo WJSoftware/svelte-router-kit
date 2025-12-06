@@ -15,7 +15,7 @@
     function handleClick() {
         if (tag === 'a') {
             if (ctx.closeOnLinkClick) {
-                ctx.menuActive = !ctx.menuActive;
+                ctx.menuActive = false;
             }
         }
     }
