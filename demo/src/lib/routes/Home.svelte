@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { resolve } from '$app/paths';
     import { isColors } from '$lib/bulma/common';
     import Content from '$lib/bulma/Content.svelte';
     import Hero from '$lib/bulma/Hero.svelte';
@@ -24,7 +25,7 @@
             fat button below.
         </p>
         <div class="has-text-centered">
-            <a class="button is-primary is-large" href={kitCalculateHref({ preserveQuery: true }, '/demo')}>
+            <a class="button is-primary is-large" href={kitCalculateHref({ preserveQuery: true }, resolve('/demo'))}>
                 <i class="fa-solid fa-flag-checkered"></i>&nbsp;
                 Start Demo
             </a>
