@@ -14,7 +14,7 @@
 
     function handleClick() {
         if (ctx.closeOnLinkClick) {
-            ctx.menuActive = !ctx.menuActive;
+            ctx.menuActive = false;
         }
     }
 </script>
