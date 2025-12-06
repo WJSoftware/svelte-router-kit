@@ -3,6 +3,12 @@ name: Test
 on:
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - 'demo/**'
+      - '.github/**'
+      - '.gitignore'
+      - 'LICENSE'
+      - 'README.md'
 
 jobs:
   test:
