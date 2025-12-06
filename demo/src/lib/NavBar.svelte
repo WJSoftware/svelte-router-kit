@@ -6,6 +6,7 @@
     import { kitIsRouteActive } from './kitIsRouteActive';
     import { location } from '@svelte-router/core';
     import theme from './state/theme.svelte';
+    import { resolve } from '$app/paths';
 
     const allPositions = [undefined, 'top', 'bottom'] as const;
     let posIndex = $state(0);
@@ -45,13 +46,13 @@
             tag="a"
             isTab
             isActive={kitIsRouteActive('/')}
-            href={kitCalculateHref({ preserveQuery: true }, '/')}>Home</NavBar.Item
+            href={kitCalculateHref({ preserveQuery: true }, resolve('/'))}>Home</NavBar.Item
         >
         <NavBar.Item
             tag="a"
             isTab
             isActive={kitIsRouteActive('/demo')}
-            href={kitCalculateHref({ preserveQuery: true }, '/demo')}>Start Demo</NavBar.Item
+            href={kitCalculateHref({ preserveQuery: true }, resolve('/demo'))}>Start Demo</NavBar.Item
         >
         {#snippet end()}
             <NavBar.Item>
